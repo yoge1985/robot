@@ -3,7 +3,7 @@ package Robot;
 public class HouseKeeping extends Robot {
 
     public HouseKeeping() {
-        type = "houseKeeping";
+        type = "HouseKeeping";
         cost = 800;
         height = 200;
         weight = 30;
