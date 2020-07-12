@@ -14,14 +14,15 @@ public class Workshop {
         //common behaviours incl. sleep, walk and talk.
         //program prompts user to choose a type of robot and option to purchase additional items (as mentioned above).
 
-        System.out.println("choose type of robot: (press 0 - quit");
+        System.out.println("choose type of robot: (press 0 - quit)");
+        System.out.println("1 - housekeeping\n2 - security");
 
         boolean quit = false;
-        Scanner scanner = new Scanner(System.in);
-        int select = scanner.nextInt();
-        scanner.nextLine();
 
         while (!quit){
+            Scanner scanner = new Scanner(System.in);
+            int select = scanner.nextInt();
+            scanner.nextLine();
 
             switch (select){
                 case 0:
@@ -29,16 +30,13 @@ public class Workshop {
                     break;
                 case 1:
                     HouseKeeping houseKeeper = new HouseKeeping();
+                    System.out.println("you have selected housekeeping");
                     break;
                 case 2:
                     Security security = new Security();
+                    System.out.println("you have selected security");
                     break;
             }
         }
-
-
-
-
-
     }
 }
