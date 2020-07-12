@@ -30,13 +30,34 @@ public class Workshop {
                     break;
                 case 1:
                     HouseKeeping houseKeeper = new HouseKeeping();
+                    int ID = houseKeeper.getItemID();
+                    System.out.println(ID);
                     System.out.println("you have selected housekeeping");
+                    System.out.println("would you like to purchase cleaning items");
+                    selectCleaningItems();
+                    int choice = scanner.nextInt();
+                    houseKeeper.purchaseCleaningWares(choice);
                     break;
                 case 2:
                     Security security = new Security();
                     System.out.println("you have selected security");
+                    System.out.println("would you like to purchase weapons");
+                    selectWeapon();
+                    int choice1 = scanner.nextInt();
+                    scanner.nextLine();
+                    security.purchaseWeapon(choice1);
                     break;
             }
         }
+
+    }
+    private static void selectCleaningItems(){
+        System.out.println("select from the following items:");
+        System.out.println("1- broom\n2 - gloves\n3 - hoover");
+    }
+
+    private static void selectWeapon(){
+        System.out.println("select from the following weapons:");
+        System.out.println("1 - gun\n2 - stick\n3 - handcuffs");
     }
 }

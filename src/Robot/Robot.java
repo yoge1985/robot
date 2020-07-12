@@ -3,7 +3,6 @@ package Robot;
 public abstract class Robot implements Actions {
 
     protected String type;
-    protected String itemID;
     protected int weight;
     protected int height;
     protected double cost;

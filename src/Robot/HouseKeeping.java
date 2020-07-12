@@ -1,8 +1,11 @@
 package Robot;
 
+import CleaningUtensils.Cleaningware;
+
 public class HouseKeeping extends Robot {
 
-    private static int itemID = 0;
+    private static int itemID = 001;
+    private Cleaningware cleaningware;
 
 
     public HouseKeeping() {
@@ -19,5 +22,19 @@ public class HouseKeeping extends Robot {
     void description() {
         super.description();
         System.out.println("robot cleans the house with use of available cleaning tools. needs to be charged overnight");
+    }
+
+    public int getItemID() {
+        return itemID;
+    }
+
+    public void purchaseCleaningWares(int itemNo){
+        if (itemNo == 1){
+            cleaningware.purchaseBroom();
+        }else if (itemNo == 2){
+            cleaningware.purchaseGloves();
+        }else if (itemNo == 3){
+            cleaningware.purchaseHoover();
+        }
     }
 }
