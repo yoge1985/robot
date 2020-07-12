@@ -9,6 +9,7 @@ public class Security extends Robot {
 
     public Security() {
         itemID++;
+        weapons = new Weapons();
         type = "security";
         cost = 1200;
         height = 280;

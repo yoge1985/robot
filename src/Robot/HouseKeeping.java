@@ -16,6 +16,7 @@ public class HouseKeeping extends Robot {
         cost = 800;
         height = 200;
         weight = 30;
+        cleaningware = new Cleaningware();
     }
 
     @Override
