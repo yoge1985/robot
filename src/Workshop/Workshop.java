@@ -1,7 +1,6 @@
 package Workshop;
 
 import Robot.HouseKeeping;
-import Robot.Security;
 
 import java.util.Scanner;
 
@@ -13,44 +12,43 @@ public class Workshop {
         //purchase cleaning wares.
         //common behaviours incl. sleep, walk and talk.
         //program prompts user to choose a type of robot and option to purchase additional items (as mentioned above).
+        //returns total cost of purchase.
 
-        System.out.println("choose type of robot: (press 0 - quit)");
+        System.out.println("choose type of robot");
         System.out.println("1 - housekeeping\n2 - security");
-
         boolean quit = false;
-
-        while (!quit){
+        do {
             Scanner scanner = new Scanner(System.in);
-            int select = scanner.nextInt();
+            int selected = scanner.nextInt();
             scanner.nextLine();
-
-            switch (select){
-                case 0:
+            if (selected == 1){
+                HouseKeeping houseKeeping = new HouseKeeping();
+                System.out.println("you purchased HouseKeeping robot");
+                System.out.println("COST = " + houseKeeping.getCost());
+                System.out.println("=======================");
+                System.out.println("would you like to purchase cleaning material (Press 0 =  NO or 1 - YES)");
+                int pressed = scanner.nextInt();
+                scanner.nextLine();
+                if (pressed == 0){
+                    System.out.println("no items purchased");
                     quit = true;
                     break;
-                case 1:
-                    HouseKeeping houseKeeper = new HouseKeeping();
-                    int ID = houseKeeper.getItemID();
-                    System.out.println(ID);
-                    System.out.println("you have selected housekeeping");
-                    System.out.println("would you like to purchase cleaning items");
+                }else {
                     selectCleaningItems();
                     int choice = scanner.nextInt();
-                    houseKeeper.purchaseCleaningWares(choice);
-                    break;
-                case 2:
-                    Security security = new Security();
-                    System.out.println("you have selected security");
-                    System.out.println("would you like to purchase weapons");
-                    selectWeapon();
-                    int choice1 = scanner.nextInt();
                     scanner.nextLine();
-                    security.purchaseWeapon(choice1);
-                    break;
-            }
+                    System.out.println("how many would you like (1-10)");
+                    int quantity = scanner.nextInt();
+                    scanner.nextLine();
+                    houseKeeping.purchaseCleaningWares(choice,quantity);
+                    quit = true;
+                }
         }
 
+        }while (!quit);
+
     }
+
     private static void selectCleaningItems(){
         System.out.println("select from the following items:");
         System.out.println("1- broom\n2 - gloves\n3 - hoover");

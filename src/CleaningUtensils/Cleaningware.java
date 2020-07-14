@@ -14,21 +14,37 @@ public class Cleaningware {
         this.cost = cost;
     }
 
-    public void purchaseBroom(){
-        cost = 2.5;
-        System.out.println("you have purchased a broom");
+    public double purchaseBroom(int quantity){
+        if (quantity > 0){
+            cost = 2.5 * quantity;
+        }else {
+            cost = 2.5;
+        }
+        System.out.println("you have purchased" + quantity + " broom(s)");
         System.out.println("COST = " + cost);
+        return cost;
     }
 
-    public void purchaseGloves(){
-        cost = 1.5;
-        System.out.println("you have purchased gloves");
+    public double purchaseGloves(int quantity){
+        if (quantity > 0){
+            cost = 1.5 * quantity;
+        }else {
+            cost = 1.5;
+        }
+        System.out.println("you have purchased" + quantity + " gloves");
         System.out.println("COST = " + cost);
+        return cost;
     }
 
-    public void purchaseHoover(){
-        cost = 85;
-        System.out.println("you have purchased a hoover");
+    public double purchaseHoover(int quantity) {
+        if (quantity > 0) {
+            cost = 45 * quantity;
+        } else {
+            cost = 45;
+        }
+        System.out.println("you have purchased" + quantity + " hoover(s)");
         System.out.println("COST = " + cost);
+        return cost;
     }
+
 }

@@ -6,6 +6,7 @@ public class HouseKeeping extends Robot {
 
     private static int itemID = 001;
     private Cleaningware cleaningware;
+    private double totalCost;
 
 
     public HouseKeeping() {
@@ -17,6 +18,11 @@ public class HouseKeeping extends Robot {
         height = 200;
         weight = 30;
         cleaningware = new Cleaningware();
+
+    }
+
+    public double getCost(){
+        return cost;
     }
 
     @Override
@@ -29,13 +35,19 @@ public class HouseKeeping extends Robot {
         return itemID;
     }
 
-    public void purchaseCleaningWares(int itemNo){
-        if (itemNo == 1){
-            cleaningware.purchaseBroom();
-        }else if (itemNo == 2){
-            cleaningware.purchaseGloves();
-        }else if (itemNo == 3){
-            cleaningware.purchaseHoover();
+    public void purchaseCleaningWares(int itemNo,int quantity) {
+        if (itemNo == 1) {
+            double totalAmount = cleaningware.purchaseBroom(quantity) + this.cost;
+            System.out.println("TOTAL COST = " + totalAmount);
+        } else if (itemNo == 2) {
+            double totalAmount = cleaningware.purchaseGloves(quantity) + this.cost;
+            System.out.println("TOTAL COST = " + totalAmount);
+
+        } else if (itemNo == 3) {
+            double totalAmount = cleaningware.purchaseHoover(quantity) + this.cost;
+            System.out.println("TOTAL COST = " + totalAmount);
+
         }
     }
+
 }
